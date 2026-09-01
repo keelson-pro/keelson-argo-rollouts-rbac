@@ -1,0 +1,12 @@
+apiVersion: kaptain.org/1.29
+kind: kubernetes-bundle-resources
+metadata:
+  description: "Keelson Argo Rollouts RBAC - optional add-on ClusterRole and ClusterRoleBinding granting Keelson access to rollouts.argoproj.io"
+
+spec:
+  layers:
+    - ghcr.io/kube-kaptain/layerset/layerset-cluster-use-project:[1.1]
+  global:
+    release:
+      versioning:
+        maxParts: '2'
