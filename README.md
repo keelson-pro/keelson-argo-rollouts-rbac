@@ -1,4 +1,4 @@
-# Keelson ArgoCD Rollouts RBAC
+# Keelson Argo Rollouts RBAC
 
 An optional add-on for [Keelson](https://github.com/keelson-pro/keelson). It
 grants the Keelson ServiceAccount read, watch and update access to Argo Rollouts
