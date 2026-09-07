@@ -20,10 +20,11 @@ metadata:
   annotations:
     kaptain.org/source-repository: ${RepositoryOwner}/${RepositoryName}
 subjects:
-  # The subject is the ServiceAccount the core keelson install creates
+  # The subject is the ServiceAccount the core keelson install creates, which
+  # lives in the namespace that Keelson is deployed to.
   - kind: ServiceAccount
     name: keelson
-    namespace: ${Environment}
+    namespace: ${KeelsonArgoRolloutsRbac/KeelsonNamespace}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
