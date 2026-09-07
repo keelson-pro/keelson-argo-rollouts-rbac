@@ -2,9 +2,10 @@
 # Copyright (c) 2025-2026 Keelson contributors (Fred Cooke)
 
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
+kind: Role
 metadata:
-  name: ${Environment}.${ProjectName}-clusterrolebinding-checksum
+  name: ${ProjectName}-role-checksum
+  namespace: ${Environment}
   labels:
     kaptain.org/environment: ${Environment}
     kaptain.org/product: ${ProductName}
@@ -19,13 +20,7 @@ metadata:
     app.kubernetes.io/part-of: ${ProductName}
   annotations:
     kaptain.org/source-repository: ${RepositoryOwner}/${RepositoryName}
-subjects:
-  # The subject is the ServiceAccount the core keelson install creates, which
-  # lives in the namespace that Keelson is deployed to.
-  - kind: ServiceAccount
-    name: keelson
-    namespace: ${KeelsonArgoRolloutsRbac/KeelsonNamespace}
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: ${Environment}.${ProjectName}-clusterrole-checksum
+rules:
+  - apiGroups: ["argoproj.io"]
+    resources: ["rollouts"]
+    verbs: ["get", "list", "watch", "patch", "update"]
