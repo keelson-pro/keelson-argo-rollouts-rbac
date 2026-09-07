@@ -8,6 +8,16 @@ does on a Deployment or StatefulSet.
 Apply it only if you run [Argo Rollouts](https://argo-rollouts.readthedocs.io/)
 and have added `Rollout` to `KEELSON_WATCHED_KINDS`.
 
+
+## Minimum Argo Rollouts CRD Version
+
+Keelson only works correctly with Argo Rollouts 1.9.0 or newer. Earlier
+versions of the CRD are flawed and will result in corrupted resources if used
+with Keelson.
+
+
+## Security Through Least Privilege
+
 This bundle contains an overlapping `Role` and `ClusterRole` one of which
 should be removed depending on how you're using Keelson. Keelson docs cover
 this in its [security through least privilege](https://github.com/keelson-pro/keelson/blob/main/README.md#security-through-least-privilege)
