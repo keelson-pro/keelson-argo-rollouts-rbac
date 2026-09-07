@@ -1,4 +1,4 @@
-apiVersion: kaptain.org/1.29
+apiVersion: kaptain.org/1.30
 kind: kubernetes-bundle-resources
 metadata:
   description: "Keelson Argo Rollouts RBAC - optional add-on granting Keelson access to rollouts.argoproj.io, cluster-wide or one namespace at a time"
